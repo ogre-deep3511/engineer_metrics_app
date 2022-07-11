@@ -1,9 +1,11 @@
-import { PageHeader, Table } from 'antd';
+import { useEffect, useState } from "react";
+
+import axios from "axios";
+import { DatePicker, PageHeader, Table } from 'antd';
 
 import './App.css';
 
-import axios from "axios";
-import { useEffect, useState } from "react";
+const { RangePicker } = DatePicker;
 
 function App() {
   const owner = "tapaj";
@@ -84,7 +86,10 @@ function App() {
   return (
     <div className="App">
       <PageHeader className="site-page-header" title="Engineering Matrix" subTitle="" />
-      <div className="table-container">
+      <div className="page-container">
+        <div className="search-row">
+          <RangePicker />
+        </div>
         <Table dataSource={dataSource} columns={columns} />
       </div>
     </div>
